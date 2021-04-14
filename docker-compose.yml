@@ -1,0 +1,6 @@
+﻿version: "3.9"
+services:
+    pkg:
+        build: .
+        ports:
+            - "5999:5999"
