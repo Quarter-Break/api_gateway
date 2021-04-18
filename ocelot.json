@@ -5,12 +5,27 @@
       "DownstreamScheme": "http", // The scheme of the Microservice.
       "DownstreamHostAndPorts": [ // Defines the location of the Microservice.
         {
-          "Host": "localhost",
+          "Host": "trackservice",
           "Port": 6002
         }
       ],
       "UpstreamPathTemplate": "/gateway/track/{id}", // The path at which the client will request the Ocelot API Gateway.
       "UpstreamHttpMethod": [ "POST", "GET" ] // Supported HTTP methods to the API Gateway.
+    },
+    {
+      "DownstreamPathTemplate": "/api/user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 6001
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user",
+      "UpstreamHttpMethod": [ "POST" ]
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId"
+  }
 }
