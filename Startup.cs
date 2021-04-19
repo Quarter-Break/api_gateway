@@ -22,13 +22,22 @@ namespace APIGateway
         public void ConfigureServices(IServiceCollection services)
         {
             // Inject ocelot
-            services.AddOcelot();
+            services.AddOcelot(Configuration);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                    builder.WithOrigins("*")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Ocelot configuration:
+            app.UseCors("CorsPolicy");
             await app.UseOcelot();
         }
     }

@@ -3,4 +3,10 @@ services:
     pkg:
         build: .
         ports:
-            - "5999:5999"
+            - "0.0.0.0:5999:5999"
+        networks:
+            - qbreak-network
+
+networks:
+    qbreak-network:
+        external: true
