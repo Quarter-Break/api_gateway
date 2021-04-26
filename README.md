@@ -1,5 +1,5 @@
 # API Gateway
-[![Build .NET API](https://github.com/Quarter-Break/api_gateway/tree/main/.github/workflows/build.yml/badge.svg)](https://github.com/Quarter-Break/api_gateway/tree/main/.github/workflows/build.yml)
+[![Build .NET API](https://github.com/Quarter-Break/api_gateway/actions/workflows/build.yml/badge.svg)](https://github.com/Quarter-Break/api_gateway/actions/workflows/build.yml)
 
 .NET Core 5.0 API gateway with Ocelot.
 
