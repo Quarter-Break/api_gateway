@@ -29,4 +29,4 @@ docker network create qbreak-network
 
 #### Resources
 
-Ocelot: https://codewithmukesh.com/blog/microservice-architecture-in-aspnet-core/
+Ocelot setup: https://codewithmukesh.com/blog/microservice-architecture-in-aspnet-core/
