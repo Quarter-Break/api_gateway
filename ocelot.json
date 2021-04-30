@@ -1,6 +1,9 @@
 ﻿{
   "Routes": [
     {
+      /* TRACKSERVICE ENDPOINTS */
+      /* Tracks */
+      // Post track:
       "DownstreamPathTemplate": "/api/track/{id}", // Denotes the route of the actual endpoint in the Microservice.
       "DownstreamScheme": "http", // The scheme of the Microservice.
       "DownstreamHostAndPorts": [ // Defines the location of the Microservice.
@@ -11,7 +14,29 @@
       ],
       "UpstreamPathTemplate": "/gateway/track/{id}", // The path at which the client will request the Ocelot API Gateway.
       "UpstreamHttpMethod": [ "POST", "GET" ] // Supported HTTP methods to the API Gateway.
+
     },
+    {
+      /* Playlists */
+      // Get all by userId:
+      "DownstreamPathTemplate": "/api/playlist/user/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "trackservice",
+          "Port": 6002
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/playlist/user/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      }
+    },
+
+    /* USERSERVICE ENDPOINTS */
+    // Register:
     {
       "DownstreamPathTemplate": "/api/user",
       "DownstreamScheme": "http",
@@ -22,6 +47,19 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/user",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    // Login:
+    {
+      "DownstreamPathTemplate": "/api/user/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 6001
+        }
+      ],
+      "UpstreamPathTemplate": "/gateway/user/login",
       "UpstreamHttpMethod": [ "POST" ]
     }
   ],
