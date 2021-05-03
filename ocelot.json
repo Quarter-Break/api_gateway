@@ -13,7 +13,11 @@
         }
       ],
       "UpstreamPathTemplate": "/gateway/track/{id}", // The path at which the client will request the Ocelot API Gateway.
-      "UpstreamHttpMethod": [ "POST", "GET" ] // Supported HTTP methods to the API Gateway.
+      "UpstreamHttpMethod": [ "POST", "GET" ], // Supported HTTP methods to the API Gateway.
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      }
 
     },
     {
