@@ -1,5 +1,6 @@
 # API Gateway
 [![Build .NET API](https://github.com/Quarter-Break/api_gateway/actions/workflows/build.yml/badge.svg)](https://github.com/Quarter-Break/api_gateway/actions/workflows/build.yml)
+[![Build .NET API](https://github.com/Quarter-Break/api_gateway/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/Quarter-Break/api_gateway/actions/workflows/docker-publish.yml)
 
 .NET Core 5.0 API gateway with Ocelot.
 
